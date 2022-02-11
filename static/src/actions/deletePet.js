@@ -5,6 +5,7 @@ import { createAction } from "redux-api-middleware";
 export const deletePetAction = (petId) => {
   const meta = {
     method: "DELETE",
+    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
     endpoint: `${PET_API_BASE}/${petId}`,
   };
   return createAction({
@@ -15,6 +16,7 @@ export const deletePetAction = (petId) => {
       { type: deletePet.DELETE_PET_FAILURE, meta },
     ],
     method: meta.method,
+    headers: meta.headers,
     credentials: "include",
   });
 };

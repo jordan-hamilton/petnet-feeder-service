@@ -20,6 +20,7 @@ export const modifyFeederAction = (
 
   const meta = {
     method: "PUT",
+    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
     endpoint: `${FEEDER_API_BASE}/${deviceId}`,
     body,
   };
@@ -31,6 +32,7 @@ export const modifyFeederAction = (
       { type: modifyFeeder.MOD_FEEDER_FAILURE, meta },
     ],
     method: meta.method,
+    headers: meta.headers,
     credentials: "include",
     body,
   });

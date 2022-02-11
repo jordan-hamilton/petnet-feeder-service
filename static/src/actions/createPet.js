@@ -23,6 +23,7 @@ export const createPetAction = (
 
   const meta = {
     method: "POST",
+    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
     endpoint: `${PET_API_BASE}`,
     body,
   };
@@ -34,6 +35,7 @@ export const createPetAction = (
       { type: createPet.CREATE_PET_FAILURE, meta },
     ],
     method: meta.method,
+    headers: meta.headers,
     credentials: "include",
     body,
   });

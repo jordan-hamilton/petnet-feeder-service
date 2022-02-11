@@ -9,8 +9,8 @@ export const triggerFeedingAction = (deviceId, portion) => {
 
   const meta = {
     method: "POST",
+    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
     endpoint: `${FEEDER_API_BASE}/${deviceId}/feed`,
-    headers: { "Content-Type": "application/json" },
     body,
   };
   return createAction({
@@ -21,8 +21,8 @@ export const triggerFeedingAction = (deviceId, portion) => {
       { type: triggerFeeding.TRIGGER_FEED_FAILURE, meta },
     ],
     method: meta.method,
-    credentials: "include",
     headers: meta.headers,
+    credentials: "include",
     body,
   });
 };

@@ -16,6 +16,7 @@ export const createPetScheduleAction = (
 
   const meta = {
     method: "POST",
+    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
     endpoint: `${PET_API_BASE}/${petId}/schedule`,
     body,
     petId,
@@ -28,6 +29,7 @@ export const createPetScheduleAction = (
       { type: createPetSchedule.CREATE_PET_SCHEDULE_FAILURE, meta },
     ],
     method: meta.method,
+    headers: meta.headers,
     credentials: "include",
     body,
   });

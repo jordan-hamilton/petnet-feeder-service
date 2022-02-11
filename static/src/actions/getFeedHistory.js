@@ -14,6 +14,7 @@ export const getFeedHistoryAction = (
 
   const meta = {
     method: "GET",
+    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
     endpoint: `${url}/history?size=${pageSize}&page=${page}`,
   };
   return createAction({
@@ -24,6 +25,7 @@ export const getFeedHistoryAction = (
       { type: getFeedHistory.GET_FEED_HISTORY_FAILURE, meta },
     ],
     method: meta.method,
+    headers: meta.headers,
     credentials: "include",
   });
 };
